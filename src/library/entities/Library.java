@@ -30,22 +30,22 @@ public class Library implements Serializable {
 	private int loanId; 		//Changed "lOaN_Id" to loanId
 	private Date loanDate;		//Changed "lOaN_DaTe" to loanDate
 	
-	private Map<Integer, Book> CaTaLoG;
-	private Map<Integer, Member> MeMbErS;
-	private Map<Integer, Loan> LoAnS;
-	private Map<Integer, Loan> CuRrEnT_LoAnS;
-	private Map<Integer, Book> DaMaGeD_BoOkS;
+	private Map<Integer, Book> catalog;		//Changed "CaTaLoG" to catalog
+	private Map<Integer, Member> members;		//Changed "MeMbErS" to members
+	private Map<Integer, Loan> loans;		//Changed "LoAnS" to loans
+	private Map<Integer, Loan> currentLoans;	//Changed "CuRrEnT_LoAnS" to currentLoans
+	private Map<Integer, Book> damagedBooks;	//Changed "DaMaGeD_BoOkS" to damagedBooks
 	
 
 	private Library() {
-		CaTaLoG = new HashMap<>();
-		MeMbErS = new HashMap<>();
-		LoAnS = new HashMap<>();
-		CuRrEnT_LoAnS = new HashMap<>();
-		DaMaGeD_BoOkS = new HashMap<>();
-		bOoK_Id = 1;
-		mEmBeR_Id = 1;		
-		lOaN_Id = 1;		
+		catalog = new HashMap<>();		//Changed "CaTaLoG" to catalog
+		members = new HashMap<>();		//Changed "MeMbErS" to members
+		loans = new HashMap<>();		//Changed "LoAnS" to loans
+		currentLoans = new HashMap<>();		//Changed "CuRrEnT_LoAnS" to currentLoans
+		damagedBooks = new HashMap<>();		//Changed "DaMaGeD_BoOkS" to damagedBooks
+		bookId = 1;				//Changed "bOoK_Id" to bookId
+		memberId = 1;				//Changed "mEmBeR_Id" to memberId
+		loanId = 1;				//Changed "lOaN_Id" to loanId
 	}
 
 	
