@@ -49,23 +49,23 @@ public class Library implements Serializable {
 	}
 
 	
-	public static synchronized Library GeTiNsTaNcE() {		
-		if (SeLf == null) {
-			Path PATH = Paths.get(lIbRaRyFiLe);			
-			if (Files.exists(PATH)) {	
-				try (ObjectInputStream LiBrArY_FiLe = new ObjectInputStream(new FileInputStream(lIbRaRyFiLe));) {
-			    
-					SeLf = (Library) LiBrArY_FiLe.readObject();
-					Calendar.gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe);
-					LiBrArY_FiLe.close();
+	public static synchronized Library getInstance() {					//Changed "GeTiNsTaNcE" to getInstance	
+		if (self == null) {								//Changed "SeLf" to self
+			Path path = Paths.get(libraryFile);					//Changed "PATH" to path and "lIbRaRyFiLe" to libraryFile in 54 and 56
+			if (Files.exists(path)) {						//Changed "PATH" to path
+				try (ObjectInputStream libraryFile = new ObjectInputStream(new FileInputStream(libraryFile));) {
+			    									//Changed "LiBrArY_FiLe" to libraryFile in 56 and 58
+					self = (Library) libraryFile.readObject();		//Changed "SeLf" to self
+					Calendar.getInstance().setDate(self.loanDate);		//Changed "gEtInStAnCe().SeT_DaTe(SeLf.lOaN_DaTe)" to getInstance().setDate(self.loanDate)
+					libraryFile.close();					//Changed "LiBrArY_FiLe" to libraryFile
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
 				}
 			}
-			else SeLf = new Library();
+			else self = new Library();						//Changed "SeLf" to self
 		}
-		return SeLf;
+		return self;									//Changed "SeLf" to self
 	}
 
 	
