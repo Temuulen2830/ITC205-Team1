@@ -109,24 +109,24 @@ public class Library implements Serializable {
 	}
 
 	
-	public List<Member> lIsT_MeMbErS() {		
-		return new ArrayList<Member>(MeMbErS.values()); 
+	public List<Member> listMembers() {				//Changed "lIsT_MeMbErS" to listMembers
+		return new ArrayList<Member>(members.values()); 	//Changed "MeMbErS" to members
 	}
 
 
-	public List<Book> lIsT_BoOkS() {		
-		return new ArrayList<Book>(CaTaLoG.values()); 
+	public List<Book> listBooks() {					//Changed "lIsT_BoOkS" to listBooks
+		return new ArrayList<Book>(catalog.values()); 		//Changed "CaTaLoG" to catalog
 	}
 
 
-	public List<Loan> lISt_CuRrEnT_LoAnS() {
-		return new ArrayList<Loan>(CuRrEnT_LoAnS.values());
+	public List<Loan> listCurrentLoans() {				//Changed "lISt_CuRrEnT_LoAnS" to listCurrentLoans
+		return new ArrayList<Loan>(currentLoans.values());	//Changed "CuRrEnT_LoAnS" to currentLoans
 	}
 
 
-	public Member aDd_MeMbEr(String lastName, String firstName, String email, int phoneNo) {		
-		Member member = new Member(lastName, firstName, email, phoneNo, gEt_NeXt_MeMbEr_Id());
-		MeMbErS.put(member.GeT_ID(), member);		
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) {		//Changed "aDd_MeMbEr" to addMember
+		Member member = new Member(lastName, firstName, email, phoneNo, getNextMemberId());	//Changed "gEt_NeXt_MeMbEr_Id" to getNextMemberId
+		members.put(member.getId(), member);							//Changed "MeMbErS" to members and "GeT_ID" to getId
 		return member;
 	}
 
