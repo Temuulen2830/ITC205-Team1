@@ -131,29 +131,29 @@ public class Library implements Serializable {
 	}
 
 	
-	public Book aDd_BoOk(String a, String t, String c) {		
-		Book b = new Book(a, t, c, gEt_NeXt_BoOk_Id());
-		CaTaLoG.put(b.gEtId(), b);		
+	public Book addBook(String a, String t, String c) {		//Changed "aDd_BoOk" to addBook
+		Book b = new Book(a, t, c, getNextBookId());		//Changed "gEt_NeXt_BoOk_Id" to getNextBookId
+		catalog.put(b.getId(), b);				//Changed "CaTaLoG" to catalog and "gEtId" to getId
 		return b;
 	}
 
 	
-	public Member gEt_MeMbEr(int memberId) {
-		if (MeMbErS.containsKey(memberId)) 
-			return MeMbErS.get(memberId);
+	public Member getMember(int memberId) {				//Changed "gEt_MeMbEr" to getMember
+		if (members.containsKey(memberId)) 			//Changed "MeMbErS" to members
+			return members.get(memberId);			//Changed "MeMbErS" to members
 		return null;
 	}
 
 	
-	public Book gEt_BoOk(int bookId) {
-		if (CaTaLoG.containsKey(bookId)) 
-			return CaTaLoG.get(bookId);		
+	public Book getBook(int bookId) {				//Changed "gEt_BoOk" to getBook
+		if (catalog.containsKey(bookId)) 			//Changed "CaTaLoG" to catalog
+			return catalog.get(bookId);			//Changed "CaTaLoG" to catalog
 		return null;
 	}
 
 	
-	public int gEt_LoAn_LiMiT() {
-		return lOaNlImIt;
+	public int getLoanLimit() {					//Changed "gEt_LoAn_LiMiT" to getLoanLimit
+		return loanLimit;					//Changed "lOaNlImIt" to loanLimit
 	}
 
 	
