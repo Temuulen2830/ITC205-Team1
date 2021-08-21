@@ -157,23 +157,23 @@ public class Library implements Serializable {
 	}
 
 	
-	public boolean cAn_MeMbEr_BoRrOw(Member member) {		
-		if (member.gEt_nUmBeR_Of_CuRrEnT_LoAnS() == lOaNlImIt ) 
+	public boolean canMemberBorrow(Member member) {				//Changed "cAn_MeMbEr_BoRrOw" to canMemberBorrow
+		if (member.getNumberOfCurrentLoans() == loanLimit ) 		//Changed "gEt_nUmBeR_Of_CuRrEnT_LoAnS" to getNumberOfCurrentLoans
+			return false;						//Changed "lOaNlImIt" to loanLimit
+				
+		if (member.finesOwed() >= maxFinesOwed) 			//Changed "FiNeS_OwEd" to finesOwed
 			return false;
 				
-		if (member.FiNeS_OwEd() >= maxFinesOwed) 
-			return false;
-				
-		for (Loan loan : member.GeT_LoAnS()) 
-			if (loan.Is_OvEr_DuE()) 
+		for (Loan loan : member.getLoans()) 				//Changed "GeT_LoAnS" to getLoans
+			if (loan.isOverDue()) 					//Changed "Is_OvEr_DuE" to isOverDue
 				return false;
 			
 		return true;
 	}
 
 	
-	public int gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(Member MeMbEr) {		
-		return lOaNlImIt - MeMbEr.gEt_nUmBeR_Of_CuRrEnT_LoAnS();
+	public int getNumberOfLoansRemainingForMember(Member member) {	//Changed "gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr" to getNumberOfLoansRemainingForMember and "MeMbEr" to member
+		return loanLimit - member.getNumberOfCurrentLoans();	//Changed "lOaNlImIt" to loanLimit and "gEt_nUmBeR_Of_CuRrEnT_LoAnS" to getNumberOfCurrentLoans
 	}
 
 	
