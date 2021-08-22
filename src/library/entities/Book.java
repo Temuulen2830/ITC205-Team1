@@ -36,7 +36,7 @@ public class Book implements Serializable {
 	}
 
 	public Integer getId() {
-		return iD;
+		return id;
 	}
 
 	public String gEtTiTlE() {
