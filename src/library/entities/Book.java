@@ -40,7 +40,7 @@ public class Book implements Serializable {
 	}
 
 	public String getTitle() {
-		return tItLe;
+		return title;
 	}
 
 
