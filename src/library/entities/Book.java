@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Book implements Serializable {
 	
 	private String title;
-	private String AuThOr;
+	private String author;
 	private String CALLNO;
 	private int iD;
 	
