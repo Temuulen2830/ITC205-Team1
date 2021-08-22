@@ -35,7 +35,7 @@ public class Book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer gEtId() {
+	public Integer getId() {
 		return iD;
 	}
 
