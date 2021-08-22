@@ -45,7 +45,7 @@ public class Book implements Serializable {
 
 
 	
-	public boolean iS_AvAiLaBlE() {
+	public boolean isAvailable() {
 		return StAtE == sTaTe.AVAILABLE;
 	}
 
