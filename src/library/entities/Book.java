@@ -19,7 +19,7 @@ public class Book implements Serializable {
 	public Book(String author, String title, String callNo, int id) {
 		this.author = author;
 		this.title = title;
-		this.CALLNO = callNo;
+		this.callNo = callNo;
 		this.iD = id;
 		this.StAtE = sTaTe.AVAILABLE;
 	}
