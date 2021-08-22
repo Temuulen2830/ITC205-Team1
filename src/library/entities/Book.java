@@ -51,7 +51,7 @@ public class Book implements Serializable {
 
 	
 	public boolean isOnLoan() {
-		return StAtE == sTaTe.ON_LOAN;
+		return state == BookState.ON_LOAN;
 	}
 
 	
