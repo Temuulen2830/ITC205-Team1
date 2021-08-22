@@ -188,19 +188,19 @@ public class Library implements Serializable {
 	}
 	
 	
-	public Loan GeT_LoAn_By_BoOkId(int bookId) {
-		if (CuRrEnT_LoAnS.containsKey(bookId)) 
-			return CuRrEnT_LoAnS.get(bookId);
+	public Loan getLoanByBookId(int bookId) {			//Changed "GeT_LoAn_By_BoOkId" to getLoanByBookId
+		if (currentLoans.containsKey(bookId)) 			//Changed "CuRrEnT_LoAnS" to currentLoans
+			return currentLoans.get(bookId);		//Changed "CuRrEnT_LoAnS" to currentLoans
 		
 		return null;
 	}
 
 	
-	public double CaLcUlAtE_OvEr_DuE_FiNe(Loan LoAn) {
-		if (LoAn.Is_OvEr_DuE()) {
-			long DaYs_OvEr_DuE = Calendar.gEtInStAnCe().GeT_DaYs_DiFfErEnCe(LoAn.GeT_DuE_DaTe());
-			double fInE = DaYs_OvEr_DuE * FiNe_PeR_DaY;
-			return fInE;
+	public double calculateOverDueFine(Loan loan) {			//Changed "CaLcUlAtE_OvEr_DuE_FiNe" to calculateOverDueFine and "LoAn" to loan
+		if (loan.isOverDue()) {					//Changed "LoAn.Is_OvEr_DuE" to loan.isOverDue and in line 201 "DaYs_OvEr_DuE" to daysOverDue and "gEtInStAnCe" to getInstance
+			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());	//Changed "GeT_DaYs_DiFfErEnCe" to getDaysDifference and "LoAn.GeT_DuE_DaTe" to loan.getDueDate
+			double fine = daysOverDue * finePerDay;		//Changed "fInE" to fine and "DaYs_OvEr_DuE" to daysOverDue and "FiNe_PeR_DaY" to finePerDay
+			return fine;					//Changed "fInE" to fine
 		}
 		return 0.0;		
 	}
