@@ -21,7 +21,7 @@ public class Book implements Serializable {
 		this.title = title;
 		this.callNo = callNo;
 		this.id = id;
-		this.StAtE = sTaTe.AVAILABLE;
+		this.state = BookState.AVAILABLE;
 	}
 	
 	public String toString() {
