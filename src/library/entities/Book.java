@@ -20,7 +20,7 @@ public class Book implements Serializable {
 		this.author = author;
 		this.title = title;
 		this.callNo = callNo;
-		this.iD = id;
+		this.id = id;
 		this.StAtE = sTaTe.AVAILABLE;
 	}
 	
