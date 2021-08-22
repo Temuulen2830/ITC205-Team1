@@ -18,7 +18,7 @@ public class Book implements Serializable {
 	
 	public Book(String author, String title, String callNo, int id) {
 		this.author = author;
-		this.tItLe = title;
+		this.title = title;
 		this.CALLNO = callNo;
 		this.iD = id;
 		this.StAtE = sTaTe.AVAILABLE;
