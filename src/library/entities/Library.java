@@ -206,21 +206,21 @@ public class Library implements Serializable {
 	}
 
 
-	public void DiScHaRgE_LoAn(Loan cUrReNt_LoAn, boolean iS_dAmAgEd) {
-		Member mEmBeR = cUrReNt_LoAn.GeT_MeMbEr();
-		Book bOoK  = cUrReNt_LoAn.GeT_BoOk();
+	public void dischargeLoan(Loan currentLoan, boolean isDamaged) {//Changed "DiScHaRgE_LoAn" to dischargeLoan, "cUrReNt_LoAn" to currentLoan and "iS_dAmAgEd" to isDamaged
+		Member member = currentLoan.getMember();		//Changed "mEmBeR" to member and "cUrReNt_LoAn.GeT_MeMbEr" to currentLoan.getMember
+		Book book  = currentLoan.getBook();			//Changed "bOoK" to book and "cUrReNt_LoAn.GeT_BoOk" to currentLoan.getBook
 		
-		double oVeR_DuE_FiNe = CaLcUlAtE_OvEr_DuE_FiNe(cUrReNt_LoAn);
-		mEmBeR.AdD_FiNe(oVeR_DuE_FiNe);	
+		double overDueFine = calculateOverDueFine(currentLoan);	//Changed "oVeR_DuE_FiNe" to overDueFine, "CaLcUlAtE_OvEr_DuE_FiNe(cUrReNt_LoAn)" to calculateOverDueFine(currentLoan)
+		member.addFine(overDueFine);				//Changed "mEmBeR.AdD_FiNe(oVeR_DuE_FiNe)" to member.addFine(overDueFine)
 		
-		mEmBeR.dIsChArGeLoAn(cUrReNt_LoAn);
-		bOoK.ReTuRn(iS_dAmAgEd);
-		if (iS_dAmAgEd) {
-			mEmBeR.AdD_FiNe(damageFee);
-			DaMaGeD_BoOkS.put(bOoK.gEtId(), bOoK);
+		member.dischargeLoan(currentLoan);			//Changed "mEmBeR.dIsChArGeLoAn(cUrReNt_LoAn)" to member.dischargeLoan(currentLoan)
+		book.return(isDamaged);					//Changed "bOoK.ReTuRn(iS_dAmAgEd)" to book.return(isDamaged)
+		if (isDamaged) {					//Changed "iS_dAmAgEd" to isDamaged
+			member.addFine(damageFee);			//Changed "mEmBeR.AdD_FiNe" to member.addFine
+			damagedBooks.put(book.getId(), book);		//Changed "DaMaGeD_BoOkS.put(bOoK.gEtId(), bOoK)" to damagedBooks.put(book.getId(), book)
 		}
-		cUrReNt_LoAn.DiScHaRgE();
-		CuRrEnT_LoAnS.remove(bOoK.gEtId());
+		currentLoan.discharge();				//Changed "cUrReNt_LoAn.DiScHaRgE" to currentLoan.discharge
+		currentLoans.remove(book.getId());			//Changed "CuRrEnT_LoAnS" to currentLoans and "bOoK.gEtId" to book.getId
 	}
 
 
