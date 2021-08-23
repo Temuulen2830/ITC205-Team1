@@ -224,17 +224,17 @@ public class Library implements Serializable {
 	}
 
 
-	public void cHeCk_CuRrEnT_LoAnS() {
-		for (Loan lOaN : CuRrEnT_LoAnS.values()) 
-			lOaN.cHeCk_OvEr_DuE();
+	public void checkCurrentLoans() {				//Changed "cHeCk_CuRrEnT_LoAnS" to checkCurrentLoans
+		for (Loan loan : currentLoans.values()) 		//Changed "lOaN" to loan and "CuRrEnT_LoAnS" to currentLoans
+			loan.checkOverDue();				//Changed "lOaN.cHeCk_OvEr_DuE" to loan.checkOverDue
 				
 	}
 
 
-	public void RePaIr_BoOk(Book cUrReNt_BoOk) {
-		if (DaMaGeD_BoOkS.containsKey(cUrReNt_BoOk.gEtId())) {
-			cUrReNt_BoOk.RePaIr();
-			DaMaGeD_BoOkS.remove(cUrReNt_BoOk.gEtId());
+	public void repairBook(Book currentBook) {			//Changed "RePaIr_BoOk" to repairBook and "cUrReNt_BoOk" to currentBook
+		if (damagedBooks.containsKey(currentBook.getId())) {	//Changed "DaMaGeD_BoOkS" to damagedBooks and "cUrReNt_BoOk.gEtId" to currentBook.getId
+			currentBook.repair();				//Changed "cUrReNt_BoOk.RePaIr" to currentBook.repair
+			damagedBooks.remove(currentBook.getId());	//Changed "DaMaGeD_BoOkS" to damagedBooks and "cUrReNt_BoOk.gEtId" to currentBook.getId
 		}
 		else 
 			throw new RuntimeException("Library: repairBook: book is not damaged");
