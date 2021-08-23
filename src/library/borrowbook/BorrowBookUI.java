@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum uI_STaTe { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-
-	private bORROW_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_STaTe StaTe;
+	public static enum uIState {INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED};	
+								//Changed in line 7 "uI_STaTe" to uIState and the white space at the start and end of the bracket were deleted
+	private BorrowBookControl control;			//Changed "bORROW_bOOK_cONTROL" to BorrowBookControl and "CoNtRoL" to control
+	private Scanner input;					//Changed "InPuT" to input
+	private uIState state;					//Changed "uI_STaTe" to uIState and "StaTe" to state
 
 	
-	public BorrowBookUI(bORROW_bOOK_cONTROL control) {
-		this.CoNtRoL = control;
-		InPuT = new Scanner(System.in);
-		StaTe = uI_STaTe.INITIALISED;
-		control.SeT_Ui(this);
+	public BorrowBookUI(BorrowBookControl control) {	//Changed "bORROW_bOOK_cONTROL" to BorrowBookControl
+		this.control = control;				//Changed "CoNtRoL" to control
+		input = new Scanner(System.in);			//Changed "InPuT" to input
+		state = uIState.INITIALISED;			//Changed "StaTe" to state and "uI_STaTe" to uIState
+		control.setUI(this);				//Changed "SeT_Ui" to setUI
 	}
 
 	
