@@ -54,25 +54,25 @@ public class BorrowBookUI {
 					break;
 				}
 				try {
-					int MeMbEr_Id = Integer.valueOf(MEM_STR).intValue();
-					CoNtRoL.SwIpEd(MeMbEr_Id);
+					int memberId = Integer.valueOf(memStr).intValue();		//Changed "MeMbEr_Id" to memberId and "MEM_STR" to memStr
+					control.swiped(memberId);					//Changed "CoNtRoL.SwIpEd(MeMbEr_Id)" to control.swiped(memberId)
 				}
 				catch (NumberFormatException e) {
-					OuTpUt("Invalid Member Id");
+					output("Invalid Member Id");					//Changed "OuTpUt" to output
 				}
 				break;
 
 				
 			case RESTRICTED:
-				iNpUT("Press <any key> to cancel");
-				CoNtRoL.CaNcEl();
+				input("Press <any key> to cancel");					//Changed "iNpUT" to input
+				control.cancel();							//Changed "CoNtRoL.CaNcEl" to control.cancel
 				break;
 			
 				
 			case SCANNING:
-				String BoOk_StRiNg_InPuT = iNpUT("Scan Book (<enter> completes): ");
-				if (BoOk_StRiNg_InPuT.length() == 0) {
-					CoNtRoL.CoMpLeTe();
+				String bookStringInput = input("Scan Book (<enter> completes): ");	//Changed "BoOk_StRiNg_InPuT" to bookStringInput and "iNpUT" to input
+				if (bookStringInput.length() == 0) {					//Changed "BoOk_StRiNg_InPuT" to bookStringInput
+					control.complete();						//Changed "CoNtRoL.CoMpLeTe" to control.complete
 					break;
 				}
 				try {
