@@ -76,23 +76,23 @@ public class BorrowBookUI {
 					break;
 				}
 				try {
-					int BiD = Integer.valueOf(BoOk_StRiNg_InPuT).intValue();
-					CoNtRoL.ScAnNeD(BiD);
+					int bid = Integer.valueOf(bookStringInput).intValue();	//Changed "BiD" to bid and "BoOk_StRiNg_InPuT" to bookStringInput
+					control.scanned(bid);					//Changed "CoNtRoL.ScAnNeD(BiD)" to control.scanned(bid)
 					
 				} catch (NumberFormatException e) {
-					OuTpUt("Invalid Book Id");
+					output("Invalid Book Id");				//Changed "OuTpUt" to output
 				} 
 				break;
 					
 				
 			case FINALISING:
-				String AnS = iNpUT("Commit loans? (Y/N): ");
-				if (AnS.toUpperCase().equals("N")) {
-					CoNtRoL.CaNcEl();
+				String ans = input("Commit loans? (Y/N): ");			//Changed "AnS" to ans and "iNpUT" to input
+				if (ans.toUpperCase().equals("N")) {				//Changed "AnS" to ans
+					control.cancel();					//Changed "CoNtRoL.CaNcEl" to control.cancel
 					
 				} else {
-					CoNtRoL.CoMmIt_LoAnS();
-					iNpUT("Press <any key> to complete ");
+					control.commitLoans();					//Changed "CoNtRoL.CoMmIt_LoAnS" to control.commitLoans
+					input("Press <any key> to complete ");			//Changed "iNpUT" to input
 				}
 				break;
 				
