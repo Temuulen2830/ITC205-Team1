@@ -7,18 +7,18 @@ import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
 
-public class bORROW_bOOK_cONTROL {
+public class BorrowBookControl {			//Changed "bORROW_bOOK_cONTROL" to BorrowBookControl
 	
 	private BorrowBookUI uI;
 	
-	private Library lIbRaRy;
-	private Member mEmBeR;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE sTaTe;
+	private Library library;			//Changed "lIbRaRy" to library
+	private Member member;				//Changed "mEmBeR" to member
+	private enum controlState {INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED};	//Changed "CONTROL_STATE" to controlState
+	private controlState state;			//Changed "CONTROL_STATE" to controlState and "sTaTe" to state
 	
-	private List<Book> pEnDiNg_LiSt;
-	private List<Loan> cOmPlEtEd_LiSt;
-	private Book bOoK;
+	private List<Book> pendingList;			//Changed "pEnDiNg_LiSt" to pendingList
+	private List<Loan> completedList;		//Changed "cOmPlEtEd_LiSt" to completedList
+	private Book book;				//Changed "bOoK" to book
 	
 	
 	public bORROW_bOOK_cONTROL() {
