@@ -30,10 +30,10 @@ public class Main {
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("\nLibrary Main Menu\n\n")
-		  .append("  M  : add member\n")
+		  .append("  M  : Add member\n")
 		  .append("  LM : list members\n")
 		  .append("\n")
-		  .append("  B  : add book\n")
+		  .append("  B  : Add book\n")
 		  .append("  LB : list books\n")
 		  .append("  FB : fix books\n")
 		  .append("\n")
