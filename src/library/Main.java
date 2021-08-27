@@ -78,7 +78,8 @@ public class Main {
 				output("\n" + SDF.format(CAL.gEt_DaTe()));
 				String c = input(MENU);
 				
-				switch (c.toUpperCase()) {
+				switch (c.toUpperCase()) 
+			{
 				
 				case "M": 
 					ADD_MEMBER();
