@@ -3,7 +3,7 @@ import library.entities.*;
 
 public class PayFineControl {
 
-	private PayFineUI ui;    //Changed Ui to ui
+	private PayFineUi ui;    //Changed Ui to ui
 	private enum ControlState { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }    //Changed cOnTrOl_sTaTe to ControlState
 	private ControlState  state;    //Changed cOnTrOl_sTaTe to ControlState  and StAtE to state
 
@@ -15,13 +15,13 @@ public class PayFineControl {
 		state = ControlState .INITIALISED;    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 	}
 
-	public void setUi(PayFineUI uI) {    //Changed SeT_uI to setUi
+	public void setUi(PayFineUi uI) {    //Changed SeT_uI to setUi
 		if (!state.equals(ControlState .INITIALISED)) {    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 			throw new RuntimeException("PayFineControl: cannot call setUI except in INITIALISED state");
 		}
 
 		this.ui = uI;    //Changed Ui to ui
-		uI.setUi(PayFineUI.UiState.READY);    //Changed SeT_StAtE to setUi and uI_sTaTe to UiState
+		uI.setUi(PayFineUi.UiState.READY);    //Changed SeT_StAtE to setUi and uI_sTaTe to UiState
 		state = ControlState .READY;    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 	}
 
@@ -38,12 +38,12 @@ public class PayFineControl {
 		}
 
 		ui.display(member.toString());    //Changed Ui to ui, DiSplAY to display and MeMbEr to member
-		ui.setUi(PayFineUI.UiState.PAYING);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
+		ui.setUi(PayFineUi.UiState.PAYING);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
 		state = ControlState .PAYING;    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 	}
 
 	public void cancel() {    //Changed CaNcEl to cancel
-		ui.setUi(PayFineUI.UiState.CANCELLED);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
+		ui.setUi(PayFineUi.UiState.CANCELLED);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
 		state = ControlState .CANCELLED;    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 	}
 
@@ -56,7 +56,7 @@ public class PayFineControl {
 			ui.display(String.format("Change: $%.2f", change));    //Changed Ui to ui, DiSplAY to display and ChAnGe to change
 		}
 		ui.display(member.toString());    //Changed Ui to ui, DiSplAY to display and MeMbEr to member
-		ui.setUi(PayFineUI.UiState.COMPLETED);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
+		ui.setUi(PayFineUi.UiState.COMPLETED);    //Changed Ui to ui, SeT_StAtE to setUi and uI_sTaTe to UiState
 		state = ControlState.COMPLETED;    //Changed and StAtE to state and cOnTrOl_sTaTe to ControlState
 		return change;    //Changed ChAnGe to change
 	}
