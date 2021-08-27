@@ -11,8 +11,8 @@ import library.entities.Loan;
 import library.entities.Member;
 import library.fixbook.FixBookUI;
 import library.fixbook.fIX_bOOK_cONTROL;
-import library.payfine.PayFineUI;
-import library.payfine.pAY_fINE_cONTROL;
+import library.payfine.PayFineUi;
+import library.payfine.PayFineControl;
 import library.returnBook.ReturnBookUI;
 import library.returnBook.rETURN_bOOK_cONTROL;
 
@@ -135,8 +135,9 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void PAY_FINES() {
-		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
+	
+	private static void PAY_FINES() {
+		new PayFineUi(new PayFineControl()).RuN();
 	}
 
 
