@@ -60,6 +60,19 @@ public class fIX_bOOK_cONTROL {
 		StAtE = CoNtRoL_StAtE.READY;		
 	}
 
+public void FiX_BoOk(boolean mUsT_FiX) {
+		if (!StAtE.equals(CoNtRoL_StAtE.FIXING)) 
+			throw new RuntimeException("FixBookControl: cannot call fixBook except in FIXING state");
+			
+		if (mUsT_FiX) 
+			LiBrArY.RePaIr_BoOk(CuRrEnT_BoOk);
+		
+		CuRrEnT_BoOk = null;
+		Ui.SeT_StAtE(FixBookUI.uI_sTaTe.READY);
+		StAtE = CoNtRoL_StAtE.READY;		
+	}
+
+
 	
 	public void SCannING_COMplete() {
 		if (!StAtE.equals(CoNtRoL_StAtE.READY)) 
