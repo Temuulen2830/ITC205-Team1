@@ -87,6 +87,11 @@ public class FixBookUI {
 	{
 		OuTpUt(object);
 	}
+
+	public void dIsPlAy(Object object) 
+	{
+		OuTpUt(object);
+	}
 	
 	
 }
