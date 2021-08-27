@@ -26,7 +26,8 @@ public class Main {
 	private static SimpleDateFormat SDF;
 	
 	
-	private static String Get_menu() {
+	private static String Get_menu() 
+	{
 		StringBuilder sb = new StringBuilder();
 		
 		sb.append("\nLibrary Main Menu\n\n")
@@ -52,7 +53,8 @@ public class Main {
 	}
 
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) 
+	{		
 		try {			
 			IN = new Scanner(System.in);
 			LIB = Library.GeTiNsTaNcE();
@@ -135,12 +137,14 @@ public class Main {
 		output("\nEnded\n");
 	}	
 
-		private static void PAY_FINES() {
+		private static void PAY_FINES() 
+	{
 		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
 	}
 
 
-	private static void LIST_CURRENT_LOANS() {
+	private static void LIST_CURRENT_LOANS() 
+	{
 		output("");
 		for (Loan loan : LIB.lISt_CuRrEnT_LoAnS()) {
 			output(loan + "\n");
@@ -149,7 +153,8 @@ public class Main {
 
 
 
-	private static void LIST_BOOKS() {
+	private static void LIST_BOOKS() 
+	{
 		output("");
 		for (Book book : LIB.lIsT_BoOkS()) {
 			output(book + "\n");
@@ -158,7 +163,8 @@ public class Main {
 
 
 
-	private static void LIST_MEMBERS() {
+	private static void LIST_MEMBERS() 	
+	{
 		output("");
 		for (Member member : LIB.lIsT_MeMbErS()) {
 			output(member + "\n");
@@ -167,22 +173,26 @@ public class Main {
 
 
 
-	private static void BORROW_BOOK() {
+	private static void BORROW_BOOK() 
+	{
 		new BorrowBookUI(new bORROW_bOOK_cONTROL()).RuN();		
 	}
 
 
-	private static void RETURN_BOOK() {
+	private static void RETURN_BOOK() 
+	{
 		new ReturnBookUI(new rETURN_bOOK_cONTROL()).RuN();		
 	}
 
 
-	private static void FIX_BOOKS() {
+	private static void FIX_BOOKS() 
+	{
 		new FixBookUI(new fIX_bOOK_cONTROL()).RuN();		
 	}
 
 
-	private static void INCREMENT_DATE() {
+	private static void INCREMENT_DATE() 
+	{
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
@@ -195,7 +205,8 @@ public class Main {
 	}
 
 
-	private static void ADD_BOOK() {
+	private static void ADD_BOOK() 
+	{
 		
 		String AuThOr = input("Enter author: ");
 		String TiTlE  = input("Enter title: ");
@@ -206,7 +217,8 @@ public class Main {
 	}
 
 	
-	private static void ADD_MEMBER() {
+	private static void ADD_MEMBER() 
+	{
 		try {
 			String LaSt_NaMe = input("Enter last name: ");
 			String FiRsT_NaMe  = input("Enter first name: ");
@@ -215,21 +227,24 @@ public class Main {
 			Member MeMbEr = LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr);
 			output("\n" + MeMbEr + "\n");
 			
-		} catch (NumberFormatException e) {
+		} 
+			catch (NumberFormatException e) {
 			 output("\nInvalid phone number\n");
 		}
 		
 	}
 
 
-	private static String input(String prompt) {
+	private static String input(String prompt) 
+	{
 		System.out.print(prompt);
 		return IN.nextLine();
 	}
 	
 	
 	
-	private static void output(Object object) {
+	private static void output(Object object) 
+	{
 		System.out.println(object);
 	}
 
