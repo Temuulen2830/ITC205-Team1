@@ -11,7 +11,8 @@ public class FixBookUI {
 	private uI_sTaTe StAtE;
 
 	
-	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) {
+	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) 
+	{
 		this.CoNtRoL = CoNtRoL;
 		InPuT = new Scanner(System.in);
 		StAtE = uI_sTaTe.INITIALISED;
@@ -19,7 +20,8 @@ public class FixBookUI {
 	}
 
 
-	public void SeT_StAtE(uI_sTaTe state) {
+	public void SeT_StAtE(uI_sTaTe state) 
+	{
 		this.StAtE = state;
 	}
 
@@ -27,9 +29,11 @@ public class FixBookUI {
 	public void RuN() {
 		OuTpUt("Fix Book Use Case UI\n");
 		
-		while (true) {
+		while (true) 
+		{
 			
-			switch (StAtE) {
+			switch (StAtE) 
+			{
 			
 			case READY:
 				String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
