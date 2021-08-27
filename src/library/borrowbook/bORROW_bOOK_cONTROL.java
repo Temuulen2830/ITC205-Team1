@@ -58,27 +58,27 @@ public class BorrowBookControl {			//Changed "bORROW_bOOK_cONTROL" to BorrowBook
 	}
 	
 	
-	public void ScAnNeD(int bOoKiD) {
-		bOoK = null;
-		if (!sTaTe.equals(CONTROL_STATE.SCANNING)) 
+	public void scanned(int bookId) {				//Changed "ScAnNeD" to scanned and "bOoKiD" to bookId
+		book = null;						//Changed "bOoK" to book
+		if (!state.equals(controlState.SCANNING)) 		//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 			
-		bOoK = lIbRaRy.gEt_BoOk(bOoKiD);
-		if (bOoK == null) {
-			uI.DiSpLaY("Invalid bookId");
+		book = library.getBook(bookId);				//Changed "bOoK = lIbRaRy.gEt_BoOk(bOoKiD)" to book = library.getBook(bookId)
+		if (book == null) {					//Changed "bOoK" to book
+			uI.display("Invalid bookId");			//Changed "DiSpLaY" to display
 			return;
 		}
-		if (!bOoK.iS_AvAiLaBlE()) {
-			uI.DiSpLaY("Book cannot be borrowed");
+		if (!book.isAvailable()) {				//Changed "bOoK.iS_AvAiLaBlE" to book.isAvailable
+			uI.display("Book cannot be borrowed");		//Changed "DiSpLaY" to display
 			return;
 		}
-		pEnDiNg_LiSt.add(bOoK);
-		for (Book B : pEnDiNg_LiSt) 
-			uI.DiSpLaY(B.toString());
-		
-		if (lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size() == 0) {
-			uI.DiSpLaY("Loan limit reached");
-			CoMpLeTe();
+		pendingList.add(book);					//Changed "pEnDiNg_LiSt" to pendingList and "bOoK" to book
+		for (Book b : pendingList) 				//Changed "B" to b and "pEnDiNg_LiSt" to pendingList
+			uI.display(b.toString());			//Changed "DiSpLaY" to display and "B" to b
+	//In line 79 Changed "lIbRaRy.gEt_NuMbEr_Of_LoAnS_ReMaInInG_FoR_MeMbEr(mEmBeR) - pEnDiNg_LiSt.size()" to library.getNumberOfLoansRemainingForMember(member) - pendingList.size()
+		if (library.getNumberOfLoansRemainingForMember(member) - pendingList.size() == 0) {
+			uI.display("Loan limit reached");		//Changed "DiSpLaY" to display
+			complete();					//Changed "CoMpLeTe" to complete
 		}
 	}
 	
