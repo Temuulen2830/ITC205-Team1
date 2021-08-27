@@ -21,19 +21,19 @@ public class BorrowBookControl {			//Changed "bORROW_bOOK_cONTROL" to BorrowBook
 	private Book book;				//Changed "bOoK" to book
 	
 	
-	public bORROW_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = CONTROL_STATE.INITIALISED;
+	public BorrowBookControl() {				//Changed "bORROW_bOOK_cONTROL" to BorrowBookControl
+		this.library = library.getInstance();		//Changed "lIbRaRy" to library and "Library.GeTiNsTaNcE" to library.getInstance
+		state = controlState.INITIALISED;		//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 	}
 	
 
-	public void SeT_Ui(BorrowBookUI Ui) {
-		if (!sTaTe.equals(CONTROL_STATE.INITIALISED)) 
+	public void setUI(BorrowBookUI uI) {			//Changed "SeT_Ui" to setUI and "Ui" to uI
+		if (!state.equals(controlState.INITIALISED)) 	//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
-		this.uI = Ui;
-		Ui.SeT_StAtE(BorrowBookUI.uI_STaTe.READY);
-		sTaTe = CONTROL_STATE.READY;		
+		this.uI = uI;					//Changed "Ui" to uI
+		uI.setState(BorrowBookUI.uIState.READY);	//Changed "Ui.SeT_StAtE" to uI.setState and "uI_STaTe" to uIState
+		state = controlState.READY;			//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 	}
 
 		
