@@ -83,18 +83,18 @@ public class BorrowBookControl {			//Changed "bORROW_bOOK_cONTROL" to BorrowBook
 	}
 	
 	
-	public void CoMpLeTe() {
-		if (pEnDiNg_LiSt.size() == 0) 
-			CaNcEl();
+	public void complete() {						//Changed "CoMpLeTe" to complete
+		if (pendingList.size() == 0) 					//Changed "pEnDiNg_LiSt" to pendingList
+			cancel();						//Changed "CaNcEl" to cancel
 		
 		else {
-			uI.DiSpLaY("\nFinal Borrowing List");
-			for (Book bOoK : pEnDiNg_LiSt) 
-				uI.DiSpLaY(bOoK.toString());
+			uI.display("\nFinal Borrowing List");			//Changed "DiSpLaY" to display
+			for (Book book : pendingList) 				//Changed "bOoK" to book and "pEnDiNg_LiSt" to pendingList
+				uI.display(book.toString());			//Changed "DiSpLaY" to display and "bOoK" to book
 			
-			cOmPlEtEd_LiSt = new ArrayList<Loan>();
-			uI.SeT_StAtE(BorrowBookUI.uI_STaTe.FINALISING);
-			sTaTe = CONTROL_STATE.FINALISING;
+			completedList = new ArrayList<Loan>();			//Changed "cOmPlEtEd_LiSt" to completedList
+			uI.setState(BorrowBookUI.uIState.FINALISING);		//Changed "SeT_StAtE" to setState and "uI_STaTe" to uIState 
+			state = controlState.FINALISING;			//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 		}
 	}
 
