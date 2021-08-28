@@ -5,23 +5,21 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class Book implements Serializable {
 	
-	private String title;
-	private String author;
-	private String callNo;
-	private int id;
+	private String tItLe;
+	private String AuThOr;
+	private String CALLNO;
+	private int iD;
 	
-	private enum BookState { 
-		AVAILABLE, ON_LOAN, DAMAGED, RESERVED 
-	};
-	private BookState state;
+	private enum sTaTe { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
+	private sTaTe StAtE;
 	
 	
 	public Book(String author, String title, String callNo, int id) {
-		this.author = author;
-		this.title = title;
-		this.callNo = callNo;
-		this.id = id;
-		this.state = BookState.AVAILABLE;
+		this.AuThOr = author;
+		this.tItLe = title;
+		this.CALLNO = callNo;
+		this.iD = id;
+		this.StAtE = sTaTe.AVAILABLE;
 	}
 	
 	public String toString() {
@@ -35,34 +33,34 @@ public class Book implements Serializable {
 		return sb.toString();
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer gEtId() {
+		return iD;
 	}
 
-	public String getTitle() {
-		return title;
+	public String gEtTiTlE() {
+		return tItLe;
 	}
 
 
 	
-	public boolean isAvailable() {
-		return state == BookState.AVAILABLE;
+	public boolean iS_AvAiLaBlE() {
+		return StAtE == sTaTe.AVAILABLE;
 	}
 
 	
-	public boolean isOnLoan() {
-		return state == BookState.ON_LOAN;
+	public boolean iS_On_LoAn() {
+		return StAtE == sTaTe.ON_LOAN;
 	}
 
 	
-	public boolean isDamaged() {
-		return state == BookState.DAMAGED;
+	public boolean iS_DaMaGeD() {
+		return StAtE == sTaTe.DAMAGED;
 	}
 
 	
-	public void borrowBook() {
-		if (state.equals(BookState.AVAILABLE)) 
-			state = BookState.ON_LOAN;
+	public void BoRrOw() {
+		if (StAtE.equals(sTaTe.AVAILABLE)) 
+			StAtE = sTaTe.ON_LOAN;
 		
 		else 
 			throw new RuntimeException(String.format("Book: cannot borrow while book is in state: %s", StAtE));
@@ -71,13 +69,13 @@ public class Book implements Serializable {
 	}
 
 
-	public void returnBook(boolean damaged) {
-		if (state.equals(BookState.ON_LOAN)) 
+	public void ReTuRn(boolean DaMaGeD) {
+		if (StAtE.equals(sTaTe.ON_LOAN)) 
 			if (DaMaGeD) 
-				state = BookState.DAMAGED;
+				StAtE = sTaTe.DAMAGED;
 			
 			else 
-				state = BookState.AVAILABLE;
+				StAtE = sTaTe.AVAILABLE;
 			
 		
 		else 
@@ -86,9 +84,9 @@ public class Book implements Serializable {
 	}
 
 	
-	public void repairBook() {
-		if (state.equals(BookState.DAMAGED)) 
-			state = BookState.AVAILABLE;
+	public void RePaIr() {
+		if (StAtE.equals(sTaTe.DAMAGED)) 
+			StAtE = sTaTe.AVAILABLE;
 		
 		else 
 			throw new RuntimeException(String.format("Book: cannot repair while book is in state: %s", StAtE));
