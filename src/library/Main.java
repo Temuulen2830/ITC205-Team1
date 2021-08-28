@@ -1,7 +1,6 @@
 package library;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
-
 import library.borrowbook.BorrowBookUI;
 import library.borrowbook.bORROW_bOOK_cONTROL;
 import library.entities.Book;
@@ -17,7 +16,8 @@ import library.returnBook.ReturnBookUI;
 import library.returnBook.rETURN_bOOK_cONTROL;
 
 
-public class Main {
+public class Main 
+	{
 	
 	private static Scanner IN;
 	private static Library LIB;
