@@ -99,26 +99,26 @@ public class BorrowBookControl {			//Changed "bORROW_bOOK_cONTROL" to BorrowBook
 	}
 
 
-	public void CoMmIt_LoAnS() {
-		if (!sTaTe.equals(CONTROL_STATE.FINALISING)) 
+	public void commitLoans() {					//Changed "CoMmIt_LoAnS" to commitLoans
+		if (!state.equals(controlState.FINALISING)) 		//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 			
-		for (Book B : pEnDiNg_LiSt) {
-			Loan lOaN = lIbRaRy.iSsUe_LoAn(B, mEmBeR);
-			cOmPlEtEd_LiSt.add(lOaN);			
+		for (Book b : pendingList) {				//Changed "B" to b and "pEnDiNg_LiSt" to pendingList
+			Loan loan = library.issueLoan(b, member);	//Changed "lOaN = lIbRaRy.iSsUe_LoAn(B, mEmBeR)" to loan = library.issueLoan(b, member)
+			completedList.add(loan);			//Changed "cOmPlEtEd_LiSt" to completedList and "lOaN" to loan
 		}
-		uI.DiSpLaY("Completed Loan Slip");
-		for (Loan LOAN : cOmPlEtEd_LiSt) 
-			uI.DiSpLaY(LOAN.toString());
+		uI.display("Completed Loan Slip");			//Changed "DiSpLaY" to display
+		for (Loan loan : completedList) 			//Changed "LOAN : cOmPlEtEd_LiSt" to loan : completedList
+			uI.display(loan.toString());			//Changed "DiSpLaY" to display and "LOAN" to loan
 		
-		uI.SeT_StAtE(BorrowBookUI.uI_STaTe.COMPLETED);
-		sTaTe = CONTROL_STATE.COMPLETED;
+		uI.setState(BorrowBookUI.uIState.COMPLETED);		//Changed "SeT_StAtE" to setState and "uI_STaTe" to uIState
+		state = controlState.COMPLETED;				//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 	}
 
 	
-	public void CaNcEl() {
-		uI.SeT_StAtE(BorrowBookUI.uI_STaTe.CANCELLED);
-		sTaTe = CONTROL_STATE.CANCELLED;
+	public void cancel() {						//Changed "CaNcEl" to cancel
+		uI.setState(BorrowBookUI.uIState.CANCELLED);		//Changed "SeT_StAtE" to setState and "uI_STaTe" to uIState
+		state = controlState.CANCELLED;				//Changed "sTaTe" to state and "CONTROL_STATE" to controlState
 	}
 	
 	
