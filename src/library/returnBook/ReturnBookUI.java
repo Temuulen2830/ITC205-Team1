@@ -7,13 +7,13 @@ public class ReturnBookUI {
 	public static enum UIState { INITIALISED, READY, INSPECTING, COMPLETED };
 
 	private ReturnBookControl control;
-	private Scanner iNpUt;
+	private Scanner input;
 	private uI_sTaTe StATe;
 
 	
 	public ReturnBookUI(ReturnBookControl cOnTrOL) {
 		this.control = cOnTrOL;
-		iNpUt = new Scanner(System.in);
+		input = new Scanner(System.in);
 		StATe = uI_sTaTe.INITIALISED;
 		cOnTrOL.sEt_uI(this);
 	}
@@ -30,7 +30,7 @@ public class ReturnBookUI {
 				break;
 				
 			case READY:
-				String BoOk_InPuT_StRiNg = iNpUt("Scan Book (<enter> completes): ");
+				String BoOk_InPuT_StRiNg = input("Scan Book (<enter> completes): ");
 				if (BoOk_InPuT_StRiNg.length() == 0) 
 					control.sCaNnInG_cOmPlEtE();
 				
@@ -46,7 +46,7 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String AnS = iNpUt("Is book damaged? (Y/N): ");
+				String AnS = input("Is book damaged? (Y/N): ");
 				boolean Is_DAmAgEd = false;
 				if (AnS.toUpperCase().equals("Y")) 					
 					Is_DAmAgEd = true;
@@ -65,9 +65,9 @@ public class ReturnBookUI {
 	}
 
 	
-	private String iNpUt(String PrOmPt) {
+	private String input(String PrOmPt) {
 		System.out.print(PrOmPt);
-		return iNpUt.nextLine();
+		return input.nextLine();
 	}	
 		
 		
