@@ -31,21 +31,21 @@ public class Main
 	{
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("\nLibrary Main Menu \n\n")
-		  .append("  M  : Add member \n")
-		  .append("  LM : list members \n")
+		sb.append("\nLibrary Main Menu\n\n")
+		  .append("  M  : Add member\n")
+		  .append("  LM : list members\n")
 		  .append("\n")
-		  .append("  B  : Add book \n")
-		  .append("  LB : list books \n")
-		  .append("  FB : fix books \n")
+		  .append("  B  : Add book\n")
+		  .append("  LB : list books\n")
+		  .append("  FB : fix books\n")
 		  .append("\n")
-		  .append("  L  : Take out a loan \n")
-		  .append("  R  : Return a loan \n")
-		  .append("  LL : List loans \n")
+		  .append("  L  : Take out a loan\n")
+		  .append("  R  : Return a loan\n")
+		  .append("  LL : List loans\n")
 		  .append("\n")
 		  .append("  P  : Pay fine\n")
 		  .append("\n")
-		  .append("  T  : Oncrement Date\ n")
+		  .append("  T  : Oncrement Date\n")
 		  .append("  Q  : Quit\n")
 		  .append("\n")
 		  .append("Choice : ");
@@ -183,13 +183,13 @@ public class Main
 
 	private static void RETURN_BOOK() 
 	{
-		new ReturnBookUI(new RETURN_bOOK_CONTROL()).Run();		
+		new ReturnBookUI(New RETURN_bOOK_CONTROL()).Run();		
 	}
 
 
 	private static void FIX_BOOKS() 
 	{
-		new FixBookUI(new fIX_BOOK_CONTROL()).Run();		
+		new FixBookUI(new FIX_BOOK_CONTROL()).Run();		
 	}
 
 
