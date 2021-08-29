@@ -46,19 +46,19 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String AnS = input("Is book damaged? (Y/N): ");
-				boolean Is_DAmAgEd = false;
-				if (AnS.toUpperCase().equals("Y")) 					
-					Is_DAmAgEd = true;
+				String answer = input("Is book damaged? (Y/N): ");
+				boolean isDamaged = false;
+				if (answer.toUpperCase().equals("Y")) 					
+					isDamaged = true;
 				
-				control.dIsChArGe_lOaN(Is_DAmAgEd);
+				control.dischargeLoan(isDamaged);
 			
 			case COMPLETED:
-				oUtPuT("Return processing complete");
+				output("Return processing complete");
 				return;
 			
 			default:
-				oUtPuT("Unhandled state");
+				output("Unhandled state");
 				throw new RuntimeException("ReturnBookUI : unhandled state :" + StATe);			
 			}
 		}
