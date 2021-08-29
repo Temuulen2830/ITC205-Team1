@@ -2,32 +2,32 @@
 package library;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
-import library.borrowbook.BorrowBookUI;
-import library.borrowbook.bORROW_bOOK_cONTROL;
+import library.borrowbook.BorrowBookUi;
+import library.borrowbook.BorrowBookControl; 
 import library.entities.Book;
 import library.entities.Calendar;
 import library.entities.Library;
 import library.entities.Loan;
 import library.entities.Member;
-import library.fixbook.FixBookUI;
-import library.fixbook.fIX_bOOK_cONTROL;
-import library.payfine.PayFineUI;
-import library.payfine.pAY_fINE_cONTROL;
-import library.returnBook.ReturnBookUI;
-import library.returnBook.rETURN_bOOK_cONTROL;
+import library.fixbook.FixBookUi;
+import library.fixbook.FixBookControl;
+import library.payfine.PayFineUi;
+import library.payfine.PayFineControl;
+import library.returnBook.ReturnBookUi;
+import library.returnBook.ReturnBookControl;
 
 
 public class Main 
 	{
 	
-	private static Scanner IN;
+	private static Scanner In;
 	private static Library LIB;
-	private static String MENU;
+	private static String Menu;
 	private static Calendar CAL;
-	private static SimpleDateFormat SDF;
+	private static SimpleDateFormat sdf;
 	
 	
-	private static String Get_menu() 
+	private static String GetMenu() 
 	{
 		StringBuilder sb = new StringBuilder();
 		
@@ -39,14 +39,14 @@ public class Main
 		  .append("  LB : list books\n")
 		  .append("  FB : fix books\n")
 		  .append("\n")
-		  .append("  L  : take out a loan\n")
-		  .append("  R  : return a loan\n")
-		  .append("  LL : list loans\n")
+		  .append("  L  : Take out a loan\n")
+		  .append("  R  : Return a loan\n")
+		  .append("  LL : List loans\n")
 		  .append("\n")
-		  .append("  P  : pay fine\n")
+		  .append("  P  : Pay fine\n")
 		  .append("\n")
-		  .append("  T  : increment date\n")
-		  .append("  Q  : quit\n")
+		  .append("  T  : Oncrement Date\n")
+		  .append("  Q  : Quit\n")
 		  .append("\n")
 		  .append("Choice : ");
 		  
@@ -54,25 +54,25 @@ public class Main
 	}
 
 
-	public static void main(String[] args) 
+	Public Static Void Main(String[] Args) 
 	{		
 		try {			
 			IN = new Scanner(System.in);
-			LIB = Library.GeTiNsTaNcE();
-			CAL = Calendar.gEtInStAnCe();
-			SDF = new SimpleDateFormat("dd/MM/yyyy");
+			LIB = Library.GetInsTance();
+			CAL = Calendar.GetInStance();
+			SDF = New SimpleDateFormat("dd/MM/yyyy");
 	
-			for (Member m : LIB.lIsT_MeMbErS()) {
+			for (Member m : ListMembers()) {
 				output(m);
 			}
 			output(" ");
-			for (Book b : LIB.lIsT_BoOkS()) {
+			for (Book b : LIB.ListBooks ()) {
 				output(b);
 			}
 						
 			MENU = Get_menu();
 			
-			boolean e = false;
+			boolean e = False;
 			
 			while (!e) {
 				
@@ -127,21 +127,21 @@ public class Main
 					break;
 					
 				default: 
-					output("\nInvalid option\n");
+					Output("\nInvalid option\n");
 					break;
 				}
 				
-				Library.SaVe();
+				Library.Save();
 			}			
 		} catch (RuntimeException e) {
 			output(e);
 		}		
-		output("\nEnded\n");
+		Output("\n Ended \n");
 	}	
 
 		private static void PAY_FINES() 
 	{
-		new PayFineUI(new pAY_fINE_cONTROL()).RuN();		
+		new PayFineUI(new PAY_fINE_CONTROL()).RuN();		
 	}
 
 
@@ -177,19 +177,19 @@ public class Main
 
 	private static void BORROW_BOOK() 
 	{
-		new BorrowBookUI(new bORROW_bOOK_cONTROL()).RuN();		
+		new BorrowBookUI(new BORROW_bOOK_CONTROL()).Run();		
 	}
 
 
 	private static void RETURN_BOOK() 
 	{
-		new ReturnBookUI(new rETURN_bOOK_cONTROL()).RuN();		
+		new ReturnBookUI(new RETURN_bOOK_CONTROL()).Run();		
 	}
 
 
 	private static void FIX_BOOKS() 
 	{
-		new FixBookUI(new fIX_bOOK_cONTROL()).RuN();		
+		new FixBookUI(new fIX_BOOK_CONTROL()).Run();		
 	}
 
 
@@ -198,11 +198,11 @@ public class Main
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
-			LIB.cHeCk_CuRrEnT_LoAnS();
-			output(SDF.format(CAL.gEt_DaTe()));
+			LIB.cHeCk_CurrentLoans();
+			output(SDF.format(CAL.GetDate()));
 			
 		} catch (NumberFormatException e) {
-			 output("\nInvalid number of days\n");
+			 output("\n Invalid number of days \n");
 		}
 	}
 
@@ -212,9 +212,9 @@ public class Main
 		
 		String AuThOr = input("Enter author: ");
 		String TiTlE  = input("Enter title: ");
-		String CaLl_NuMbEr = input("Enter call number: ");
-		Book BoOk = LIB.aDd_BoOk(AuThOr, TiTlE, CaLl_NuMbEr);
-		output("\n" + BoOk + "\n");
+		String CallNumber = input("Enter call number: ");
+		Book = LIB.AddBook(Author, Title, CallNumber);
+		output("\n" + Book + "\n");
 		
 	}
 
@@ -222,12 +222,12 @@ public class Main
 	private static void ADD_MEMBER() 
 	{
 		try {
-			String LaSt_NaMe = input("Enter last name: ");
-			String FiRsT_NaMe  = input("Enter first name: ");
-			String EmAiL_AdDrEsS = input("Enter email address: ");
-			int PhOnE_NuMbEr = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member MeMbEr = LIB.aDd_MeMbEr(LaSt_NaMe, FiRsT_NaMe, EmAiL_AdDrEsS, PhOnE_NuMbEr);
-			output("\n" + MeMbEr + "\n");
+			String LastName = input("Enter last name: ");
+			String FirstName  = input("Enter first name: ");
+			String EmailAddress = input("Enter email address: ");
+			int PhoneNumber = Integer.valueOf(input("Enter phone number: ")).intValue();
+			Member = LIB.aDd_Member(LastName, FirstName, Email_Address, PhoneNumber);
+			output("\n" + Member + "\n");
 			
 		} 
 			catch (NumberFormatException e) {
