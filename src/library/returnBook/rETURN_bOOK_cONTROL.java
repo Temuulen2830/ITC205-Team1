@@ -9,13 +9,13 @@ public class ReturnBookControl {
 	private enum ControlState { INITIALISED, READY, INSPECTING };
 	private ControlState state;
 	
-	private Library lIbRaRy;
-	private Loan CurrENT_loan;
+	private Library library;
+	private Loan currentLoan;
 	
 
-	public rETURN_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = cOnTrOl_sTaTe.INITIALISED;
+	public ReturnBookControl() {
+		this.library = Library.getInstance();
+		state = ControlState.INITIALISED;
 	}
 	
 	
