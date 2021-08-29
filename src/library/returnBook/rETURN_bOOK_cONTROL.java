@@ -3,29 +3,29 @@ import library.entities.Book;
 import library.entities.Library;
 import library.entities.Loan;
 
-public class rETURN_bOOK_cONTROL {
+public class ReturnBookControl {
 
-	private ReturnBookUI Ui;
-	private enum cOnTrOl_sTaTe { INITIALISED, READY, INSPECTING };
-	private cOnTrOl_sTaTe sTaTe;
+	private ReturnBookUI uI;
+	private enum ControlState { INITIALISED, READY, INSPECTING };
+	private ControlState state;
 	
-	private Library lIbRaRy;
-	private Loan CurrENT_loan;
+	private Library library;
+	private Loan currentLoan;
 	
 
-	public rETURN_bOOK_cONTROL() {
-		this.lIbRaRy = Library.GeTiNsTaNcE();
-		sTaTe = cOnTrOl_sTaTe.INITIALISED;
+	public ReturnBookControl() {
+		this.library = Library.getInstance();
+		state = ControlState.INITIALISED;
 	}
 	
 	
-	public void sEt_uI(ReturnBookUI uI) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INITIALISED)) 
+	public void setUI(ReturnBookUI uI) {
+		if (!state.equals(ControlState.INITIALISED)) 
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		
-		this.Ui = uI;
-		uI.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;		
+		this.uI = uI;
+		uI.setState(ReturnBookUI.UIState.READY);
+		state = ControlState.READY;		
 	}
 
 
