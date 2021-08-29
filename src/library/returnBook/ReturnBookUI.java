@@ -32,7 +32,7 @@ public class ReturnBookUI {
 			case READY:
 				String bookInputString = input("Scan Book (<enter> completes): ");
 				if (bookInputString.length() == 0) 
-					control.sCaNnInG_cOmPlEtE();
+					control.scanningComplete();
 				
 				else {
 					try {
