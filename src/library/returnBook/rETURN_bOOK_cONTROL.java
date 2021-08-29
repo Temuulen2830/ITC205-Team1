@@ -68,14 +68,14 @@ public class ReturnBookControl {
 	}
 
 
-	public void dIsChArGe_lOaN(boolean iS_dAmAgEd) {
-		if (!sTaTe.equals(cOnTrOl_sTaTe.INSPECTING)) 
+	public void dischargeLoan(boolean isDamaged) {
+		if (!state.equals(ControlState.INSPECTING)) 
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		
-		lIbRaRy.DiScHaRgE_LoAn(CurrENT_loan, iS_dAmAgEd);
-		CurrENT_loan = null;
-		Ui.sEt_sTaTe(ReturnBookUI.uI_sTaTe.READY);
-		sTaTe = cOnTrOl_sTaTe.READY;				
+		lIbRaRy.dischargeLoan(currentLoan, isDamaged);
+		currentLoan = null;
+		uI.setState(ReturnBookUI.UIState.READY);
+		state = ControlState.READY;				
 	}
 
 
