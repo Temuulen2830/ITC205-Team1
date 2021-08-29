@@ -197,8 +197,8 @@ public class Main
 	{
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
-			LIB.cHeCk_CurrentLoans();
+			CAL.IncrementDate(days);
+			LIB.check_CurrentLoans();
 			output(SDF.format(CAL.GetDate()));
 			
 		} catch (NumberFormatException e) {
@@ -226,12 +226,12 @@ public class Main
 			String FirstName  = input("Enter first name: ");
 			String EmailAddress = input("Enter email address: ");
 			int PhoneNumber = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member = LIB.aDd_Member(LastName, FirstName, Email_Address, PhoneNumber);
+			Member = LIB.add_Member(LastName, FirstName, Email_Address, PhoneNumber);
 			output("\n" + Member + "\n");
 			
 		} 
 			catch (NumberFormatException e) {
-			 output("\nInvalid phone number\n");
+			 output("\n Invalid phone number\n");
 		}
 		
 	}
