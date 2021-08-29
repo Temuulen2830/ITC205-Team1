@@ -230,7 +230,7 @@ public class Main
 			
 		} 
 			catch (NumberFormatException e) {
-			 output("\nInvalid phone number\n");
+			 output("\n Invalid phone number\n");
 		}
 		
 	}
