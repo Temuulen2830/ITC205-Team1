@@ -8,13 +8,13 @@ public class ReturnBookUI {
 
 	private ReturnBookControl control;
 	private Scanner input;
-	private uI_sTaTe StATe;
+	private UIState StATe;
 
 	
 	public ReturnBookUI(ReturnBookControl cOnTrOL) {
 		this.control = cOnTrOL;
 		input = new Scanner(System.in);
-		StATe = uI_sTaTe.INITIALISED;
+		StATe = UIState.INITIALISED;
 		cOnTrOL.sEt_uI(this);
 	}
 
@@ -80,7 +80,7 @@ public class ReturnBookUI {
 		oUtPuT(object);
 	}
 	
-	public void sEt_sTaTe(uI_sTaTe state) {
+	public void sEt_sTaTe(UIState state) {
 		this.StATe = state;
 	}
 
