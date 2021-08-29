@@ -65,22 +65,22 @@ public class ReturnBookUI {
 	}
 
 	
-	private String input(String PrOmPt) {
-		System.out.print(PrOmPt);
+	private String input(String prompt) {
+		System.out.print(prompt);
 		return input.nextLine();
 	}	
 		
 		
-	private void oUtPuT(Object ObJeCt) {
-		System.out.println(ObJeCt);
+	private void output(Object object) {
+		System.out.println(object);
 	}
 	
 			
-	public void DiSpLaY(Object object) {
+	public void display(Object object) {
 		oUtPuT(object);
 	}
 	
-	public void sEt_sTaTe(UIState state) {
+	public void setState(UIState state) {
 		this.state = state;
 	}
 
