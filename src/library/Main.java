@@ -196,8 +196,8 @@ public class Main
 	{
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
-			LIB.cHeCk_CurrentLoans();
+			CAL.IncrementDate(days);
+			LIB.check_CurrentLoans();
 			output(SDF.format(CAL.GetDate()));
 			
 		} catch (NumberFormatException e) {
