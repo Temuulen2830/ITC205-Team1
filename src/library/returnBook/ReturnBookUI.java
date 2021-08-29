@@ -8,13 +8,13 @@ public class ReturnBookUI {
 
 	private ReturnBookControl control;
 	private Scanner input;
-	private UIState StATe;
+	private UIState state;
 
 	
 	public ReturnBookUI(ReturnBookControl cOnTrOL) {
 		this.control = cOnTrOL;
 		input = new Scanner(System.in);
-		StATe = UIState.INITIALISED;
+		state = UIState.INITIALISED;
 		cOnTrOL.sEt_uI(this);
 	}
 
@@ -24,7 +24,7 @@ public class ReturnBookUI {
 		
 		while (true) {
 			
-			switch (StATe) {
+			switch (state) {
 			
 			case INITIALISED:
 				break;
@@ -81,7 +81,7 @@ public class ReturnBookUI {
 	}
 	
 	public void sEt_sTaTe(UIState state) {
-		this.StATe = state;
+		this.state = state;
 	}
 
 	
