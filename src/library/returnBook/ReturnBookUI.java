@@ -11,11 +11,11 @@ public class ReturnBookUI {
 	private UIState state;
 
 	
-	public ReturnBookUI(ReturnBookControl cOnTrOL) {
-		this.control = cOnTrOL;
+	public ReturnBookUI(ReturnBookControl control) {
+		this.control = control;
 		input = new Scanner(System.in);
 		state = UIState.INITIALISED;
-		cOnTrOL.sEt_uI(this);
+		control.sEt_uI(this);
 	}
 
 
