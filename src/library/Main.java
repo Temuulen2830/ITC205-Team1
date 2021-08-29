@@ -225,7 +225,7 @@ public class Main
 			String FirstName  = input("Enter first name: ");
 			String EmailAddress = input("Enter email address: ");
 			int PhoneNumber = Integer.valueOf(input("Enter phone number: ")).intValue();
-			Member = LIB.aDd_Member(LastName, FirstName, Email_Address, PhoneNumber);
+			Member = LIB.add_Member(LastName, FirstName, Email_Address, PhoneNumber);
 			output("\n" + Member + "\n");
 			
 		} 
