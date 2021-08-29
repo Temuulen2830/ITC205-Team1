@@ -40,7 +40,7 @@ public class ReturnBookUI {
 						control.bookScanned(bookId);
 					}
 					catch (NumberFormatException e) {
-						oUtPuT("Invalid bookId");
+						output("Invalid bookId");
 					}					
 				}
 				break;				
