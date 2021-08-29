@@ -4,69 +4,72 @@ import java.util.Scanner;
 
 public class FixBookUI {
 
-	public static enum uI_sTaTe { INITIALISED, READY, FIXING, COMPLETED };
+	public static enum UiState {Inttialised, Ready, Fixing, Completed};
+	
 
-	private fIX_bOOK_cONTROL CoNtRoL;
-	private Scanner InPuT;
-	private uI_sTaTe StAtE;
+	Privete FixBookControl Control;
+	private Scanner Input;
+	private UiState State;
 
 	
-	public FixBookUI(fIX_bOOK_cONTROL CoNtRoL) 
+	public FixBookUiFixBookControl Control;) 
 	{
-		this.CoNtRoL = CoNtRoL;
-		InPuT = new Scanner(System.in);
-		StAtE = uI_sTaTe.INITIALISED;
-		CoNtRoL.SeT_Ui(this);
+		This.Control = Control;
+		Input = New Scanner(System.In):
+		State= UiState.Initialised;
+		Control.SetUi(This);
 	}
 
 
-	public void SeT_StAtE(uI_sTaTe state) 
+	public void SetState(UiState State) 
+			
 	{
-		this.StAtE = state;
+		This.State = State;
 	}
 
 	
-	public void RuN() {
-		OuTpUt("Fix Book Use Case UI\n");
+	public void Run) {
+		Output("Fix Book use Case Ui\n");
 		
 		while (true) 
 		{
 			
-			switch (StAtE) 
+			switch (State) 
 			{
 			
-			case READY:
-				String BoOk_EnTrY_StRiNg = iNpUt("Scan Book (<enter> completes): ");
-				if (BoOk_EnTrY_StRiNg.length() == 0) 
-					CoNtRoL.SCannING_COMplete();
+			Case Ready:
+				String BookEntryString = Input("Scan Book(<Enter> Completes):");
+				if (BookEntryString.Length() == 0) 
+					
+					Control.ScanningComplete();
 				
 				else {
 					try {
-						int BoOk_Id = Integer.valueOf(BoOk_EnTrY_StRiNg).intValue();
-						CoNtRoL.BoOk_ScAnNeD(BoOk_Id);
+						int BookId = Integer.ValueOf(BookEntryString).IntValue();
+						ControlBookScanned(BookId);
 					}
 					catch (NumberFormatException e) {
-						OuTpUt("Invalid bookId");
+						Output("Invalid bookId");
 					}
 				}
 				break;	
 				
 			case FIXING:
-				String AnS = iNpUt("Fix Book? (Y/N) : ");
-				boolean FiX = false;
-				if (AnS.toUpperCase().equals("Y")) 
-					FiX = true;
+				String Ans = Input("Fix Book? (Y/N) : ");
+				Boolean Fix = False;
+				if (Ans.toupperCase().Equals("Y")) 
+					Fix = True;
 				
-				CoNtRoL.FiX_BoOk(FiX);
-				break;
+				Control.FixBook(Fix);
+				Break;
 								
-			case COMPLETED:
-				OuTpUt("Fixing process complete");
-				return;
+			Case Completed:
+				Output("Fixing process complete");
+				Return;
 			
-			default:
-				OuTpUt("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + StAtE);			
+			Default:
+				Output("Unhandled State");
+				throw New RuntimeException("FixBookUI : Unhandled State :" + State);			
 			
 			}		
 		}
@@ -74,27 +77,32 @@ public class FixBookUI {
 	}
 
 	
-	private String iNpUt(String prompt) 
+	private String Output(String Prompt) 
 	{
-		System.out.print(prompt);
-		return InPuT.nextLine();
+		System.out.print(Prompt);
+		return Input.NextLine();
 	}	
 		
 		
-	private void OuTpUt(Object object) 
+	private void Output(Object object) 
 	{
 		System.out.println(object);
 	}
 	
 
-	public void dIsPlAy(Object object) 
+	public void Display(Object Object) 
 	{
 		OuTpUt(object);
 	}
 
-	public void dIsPlAy(Object object) 
+	public void Display(Object Object) 
 	{
-		OuTpUt(object);
+		Output(object);
+	}
+
+	public void Display(Object Object) 
+	{
+		Output(object);
 	}
 	
 	
